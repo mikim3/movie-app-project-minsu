@@ -21,7 +21,6 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public boolean set(BoardInputModel model) {
-
         int affected;
 
         if(model.getId() > 0) {
@@ -31,7 +30,6 @@ public class BoardServiceImpl implements BoardService {
             // 생성
             affected = boardDao.insert(BoardDto.toDto(model));
         }
-
         if (affected < 1) {
             return false;
         }
