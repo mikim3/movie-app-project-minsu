@@ -20,19 +20,29 @@ public class UserController {
         return userService.gets();
     }
 
-    @GetMapping("/login")
-    public  String login() {
+    @GetMapping("/user")
+    public @ResponseBody String user() {
         return "login";
     }
 
+    @GetMapping("/manager")
+    public @ResponseBody String manager() {
+        return "manager";
+    }
+
+    //스프링 시큐리티가 해당주소는 낚아채버린다. - SecurityConfig 파일 생성 후 작동안함
+    @GetMapping("/login")
+    public  String login() {
+        return "loginForm";
+    }
+
     @GetMapping("/join")
-    public String join() {
+    public @ResponseBody String join() {
         return "join";
     }
 
     @GetMapping("/joinProc")
-    public @ResponseBody
-    String joinProc() {
+    public @ResponseBody String joinProc() {
         return "회원가입 완료됨!";
     }
 
